@@ -19,7 +19,7 @@
 
 * 5월3주
   * - requireJS API를 참고하여 모듈 정의 방식을 변경  (현재 적용한 AMD 포맷 형식이 의존성 불일치의 위험이 있으므로 sugar를 사용하길 권장 함)  http://requirejs.org/docs/whyamd.html#sugar 
-  * - html 마크업 작성 (nested template) - 변경되는 영역은 content
+  * - html 마크업 작성 (nested template) : 변경되는 영역은 content
 
 * 5월4주
   * html 화면 분리 (inner template)
@@ -40,63 +40,38 @@
 * 6월2주
   * 샘플 예제 작성 -> 아키텍쳐 설계
   * 검색조건 뷰 추가(o)
-  * 로그인화면 추가(o)
+  * 로그인MVC 화면 추가(o)
   * 부트스트랩 css+js plugin 이벤트 추가
-  * 아키텍쳐설계서 파피루스에 정리(팝업사용법 ,콘솔로그확인법, 알림창)
+  * 아키텍쳐설계서 파피루스에 정리(팝업사용법, 콘솔로그확인법, 알림창)
   * 정보검색  jCal캘린더, 유효성플러그인
 
 * 6월3주
   * 캘린더사용법, 유효성검사 사용법 파피루스에 정리
-  * 로그인 페이지 전환 완료(o)
+  * 로그인 페이지에서 메인 페이지로 전환 
+  * 하나의 페이지에 모델 두개를 뷰로 보여줌 
 
-* 7월 2주 
+* 7월 1주
   * i18n적용
   * validation 테스트(x)
   * insert 완료(requireJS 포함)
+
+* 7월 2주 
   * 예제 소스 분석 employeeList, detail, add 페이지 분석 및 수정
 
 * 7월 3주
   * 하계 휴가
 
 * 7월 4주
-  * 라우터 분리 -> 정규식 표현 쓰는 방법으로 변경
+  * 라우터 분리 -> 정규식 표현 쓰는 방법으로 변경 예정
   * 예제 소스 employeeList, detail, add 페이지 분석 및 수정
 
 * 7월 4주 - 8월 1주
   * employeeList 화면 CRUD 완성
   * 이벤트 기반으로 변경
-  * 이벤트 바인딩 파피루스(아키텍쳐설계서)에 정리(
+  * 이벤트 바인딩 파피루스(아키텍쳐설계서)에 정리
+ 
 
-
-## 디렉토리 구조 ##
-webapp/
-    test.html
-    js/
-        main.js
-        require.js
-        text.js 
-        modules/
-            models/
-                model.js      
-            views/
-                view.js
-            router.js   
-        libs/
-            backbone/
-                backbone.js
-            bootstrap/
-                css/
-                fonts/
-                js/
-            jquery/
-                jquery.js
-            underscore/
-                underscore.js 
-        templates/
-            main.html
-
-
-## 파일 로드 ##   
+## 파일 로드 순서 ##   
 * index.html 
   * 기존의 스크립트 태그를 사용하지 않고 스크립트 자체로 로딩을 하기 위해 최초 파일에 정의 
   * 1. 로드를  할 파일을 data-main속성을 써서 js/main으로 경로 지정  (baseUrl은 js가 된다.) 

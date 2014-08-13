@@ -32,9 +32,9 @@
 * 6월1주 (0602/0603)
   * views/employeeList.js 페이지 추가
   * Backbone.view 추가(o)
-  * 이벤트 핸들링 반영 하기############할일###########(x)(연기)
+  * 이벤트 핸들링 반영 하기(x)(연기)
   * 검색 조건 view 추가(o)
-  * 로그인 화면 추가(o)#######body로 넣기 수정#######
+  * 로그인 화면 추가(o) body로 넣기 수정(o)
   * 부트스트랩 컨트롤 정리-> 파피루스 -> 아키텍쳐 설계(o) 
 
 * 6월2주
@@ -69,31 +69,32 @@
 
 
 ## 디렉토리 구조 ##
-* webapp/
-  **  index.html
-  **  js/
-  ****      main.js
-  ****      require.js
-  ****      text.js 
-  ****      modules/
-  *****          models/
-  ******              model.js      
-  *****          views/
-  ******              view.js
-  **          router.js   
-  **      libs/
-  ****          backbone/
-  *****              backbone.js
-  ****          bootstrap/
-  *****              css/
-  *****              fonts/
-  *****              js/
-  ****          jquery/
-  *****              jquery.js
-  ****          underscore/
-  *****              underscore.js 
-  **      templates/
-  ****          main.html
+webapp/
+    test.html
+    js/
+        main.js
+        require.js
+        text.js 
+        modules/
+            models/
+                model.js      
+            views/
+                view.js
+            router.js   
+        libs/
+            backbone/
+                backbone.js
+            bootstrap/
+                css/
+                fonts/
+                js/
+            jquery/
+                jquery.js
+            underscore/
+                underscore.js 
+        templates/
+            main.html
+
 
 ## 파일 로드 ##   
 * index.html 
@@ -125,4 +126,17 @@
 * map :  기존 버전에 의존하는 모듈과 개선된 모듈이 의존하는 모듈의 버전이 달라질 수 있다. 하지만 아직 이 두 모듈이 프로젝트 내에서 공존해야 할 경우에 사용
 
 * 개발자 도구의 > 네트워크로 로드 되는 순서를 확인할 수 있다.
+
+
+
+
+
+
+
+
+
+
+
+
+
 

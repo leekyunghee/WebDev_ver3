@@ -1,9 +1,8 @@
 ## RequireJS + Backbone.js ##
 * 4월4주 
-
- ** reuireJS 적용
- ** 스크립트 파일 로드 테스트(환경설정:main.js) 
- ** mvc example로 테스트 
+ * reuireJS 적용
+ * 스크립트 파일 로드 테스트(환경설정:main.js) 
+ * mvc example로 테스트 
 
 # 5월1주 
 # -연휴 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- <!DOCTYPE configuration SYSTEM "schema/mybatis-3-config.dtd"> -->
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="useGeneratedKeys" value="true" />
+		<setting name="defaultExecutorType" value="REUSE" />
+	</settings>
+
+	<typeAliases>
+		<typeAlias alias="ResultUser" type="team.idess.web.bean.account.AccountBean"></typeAlias>
+		<typeAlias alias="ParamUser" type="team.idess.web.bean.account.AccountBean"></typeAlias>
+		<typeAlias alias="ResultEmployee" type="team.idess.web.bean.employee.EmployeeBean"></typeAlias> 
+		<typeAlias alias="ParamEmployee" type="team.idess.web.bean.employee.EmployeeBean"></typeAlias>
+	</typeAliases>
+
+    <typeHandlers>
+        <!--  java.sql.Timestamp 를 java.util.Date 형으로 반환 -->
+        <typeHandler javaType="java.sql.Timestamp" handler="org.apache.ibatis.type.DateTypeHandler"/>
+        <typeHandler javaType="java.sql.Time"      handler="org.apache.ibatis.type.DateTypeHandler"/>
+        <typeHandler javaType="java.sql.Date"      handler="org.apache.ibatis.type.DateTypeHandler"/>
+    </typeHandlers>
+</configuration>

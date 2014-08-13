@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="US-ASCII">
+<script type="text/javascript" src="/js/lib/jquery.js"></script>
+<title>Insert title here</title>
+
+</head>
+<body>
+<input id="name" value=""/> 
+<button id="test" >add</button>
+<button id="on" >event set</button>
+<button id="off" >event unset</button>
+<button id="reset" >reset</button>
+<button id="write" >write</button>
+<br/>
+<textarea id="result1" rows="3"></textarea>
+<br/>
+<textarea id="result2" rows="3"></textarea>
+<br/>
+<textarea id="result3" rows="3"></textarea>
+<br/>
+<textarea id="result4" rows="3"></textarea>
+
+</body>
+
+<script>
+
+var name="";
+
+(function($){
+    $(document).on('add', function(){
+        var data = $("#result").val();
+        $("#result1").val(data + "\n 1번 " + name);
+    });
+})(jQuery);
+
+(function($){
+    $(document).on('add', function(){
+        var data = $("#result").val();
+        $("#result2").val(data + "\n 2번 " + name);
+    });
+})(jQuery);
+
+(function($){
+    $(document).on('add', function(){
+        var data = $("#result").val();
+        $("#result3").val(data + "\n 3번 " + name);
+    });
+})(jQuery);
+
+(function($){
+    $(document).off('add', function(){
+        var data = $("#result").val();
+        $("#result4").val(data + "\n 4번 " + name);
+    });
+})(jQuery);
+
+
+
+(function($){ 
+	
+	function onEvent(){
+		$("#test").on('click', function(){
+	        name = $("#name").val();
+	       $(document).trigger("add");
+	    });
+	}
+	function offEvent(){
+		$("#test").off('click');
+	}
+	
+    $("#on").on('click', onEvent);
+    $("#off").on('click', offEvent);
+    $("#reset").on('click', function(){
+       $("textarea").val("");
+    });
+    $("#write").on('click', function(){
+    	document.write('<input id="name" value=""/>'+ 
+    	'<button id="test" >add</button>');
+    })
+})(jQuery);
+
+</script>
+</html>

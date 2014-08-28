@@ -3,35 +3,35 @@
     <h3><%= firstName %> <%= lastName %></h3>
     <h4><%= title %></h4>
     <br>
-    <table class="table table-striped">
+    <div class="table table-striped">
         <%
         if (managerId)
         {
         %>
-        <tr>
-            <td>Manager:</td>
-            <td><i class="icon-user"></i> <a href='#employees/<%= managerId %>'><%= managerName %></a></td>
-        </tr>
+        <div>
+            <label for="manager">Manager:</label>
+            <i class="icon-user"></i> <a href='#employees/<%= managerId %>'><%= managerName %></a>
+        </div>
         <%
         }
         %>
-        <tr>
-            <td>Office Phone:</td>
-            <td><i class="icon-home"></i> <%= officePhone %></td>
-        </tr>
-        <tr>
-            <td>Cell Phone:</td>
-            <td><i class="icon-headphones"></i> <%= cellPhone %></td>
-        </tr>
-        <tr>
-            <td>Email:</td>
-            <td><i class="icon-envelope"></i> <a href="mailto:<%= email %>"><%= email %></a></td>
-        </tr>
-        <tr>
-            <td>Twitter:</td>
-            <td><i class="icon-retweet"></i> <a href=""><%= twitterId %></a></td>
-        </tr>
-    </table>
+        <div>
+            <label for="officePhone">Office Phone:</label>
+            <i class="icon-home"></i> <%= officePhone %>
+        </div>
+        <div>
+            <label for="cellPhone">Cell Phone:</label>
+            <i class="icon-headphones"></i> <%= cellPhone %>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <i class="icon-envelope"></i> <a href="mailto:<%= email %>"><%= email %></a>
+        </div>
+        <div>
+            <label for="twitter">Twitter:</label>
+            <i class="icon-retweet"></i> <a href=""><%= twitterId %></a>
+        </div>
+    </div>
 
     <div class="alert alert-warning">
         <h4 class="alert-heading">Warning</h4>

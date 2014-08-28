@@ -8,18 +8,26 @@ define(function (require) {
         tpl                 = require('text!tpl/Shell.html'),
 
         template = _.template(tpl);
+        $menuItems;
 
     return Backbone.View.extend({
 
         initialize: function () {
-            console.log("shell view initialize()" + this.el);
+            console.log("base view initialize()" + this.el);
         },
 
         render: function () {
-        	console.log("shell view render");
+        	console.log("base view render");
             this.$el.html(template());
+            $menuItems = $('navbar .nav li', this.el);
             return this;
-        }
+        },
+		selectMenuItem : function(menuItem) {
+			$menuItems.removeClass('active');
+			if (menuItem) {
+				$('.' + menuItem + '-menu').addClass('active');
+			}
+		}
     });
 
 });

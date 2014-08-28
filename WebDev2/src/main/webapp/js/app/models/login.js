@@ -1,47 +1,55 @@
 define(function (require){
 	
+	// require Library
 	var $ 				= require('jquery'),
 	_ 					= require('underscore'),
-	Backbone    		= require('backbone'),
+	Backbone    		= require('backbone');
 
-	User = Backbone.Model.extend({
-		//url: 'login/index',
+	// require i18n
+	var locale = require('i18n!nls/str');
+	
+	var User = Backbone.Model.extend({
+		
 		defaults: {
 			id: '',
 			pwd : '',
 			successYn: ''
 		},
+		url: 'login/index',
 		initialize : function(){
-			console.log('User Model initialize');
+			console.log('login Model initialize');
 		},
+		validate : function(attrs, options) {
+			if(!attrs.id) {
+				return locale.requireUsername;
+			}
+			if(!attrs.pwd) {
+				return locale.requirePassword;
+			}
+			console.log('attrs:' +JSON.stringify(attrs));
+			console.log('options:' +JSON.stringify(options));
+		},
+		
 		// 로그인 액션 
 		login : function(options){
 			console.log("login()");
 			this.fetch({
-				url : options.url,
 				async:false,
         		type : 'POST',
         		dataType : 'json',
         		data : JSON.stringify(this.toJSON()),
         		contentType : 'application/json',
-        		success: function(user){
-					console.log(user.toJSON());
-				},
-				error: function(data, errorThrown) {
-					console.log('request failed :'+JSON.stringify(errorThrown));
-				}
+        		success : options.success,
+        		error : function(model, response) { 
+        			console.log('fetch error'); 
+        			console.log(model); 
+        			console.log(response); 
+        		} 
+
 			});
 		}
 	});
 
-	// 객체 생성 
-	var user = new User({id :'id', pwd :'pwd'});
-	
-	// 모델 객체 테스트 
-	console.log("*******************");
-	console.log(user);
-	console.log(user.get('id'));
-	console.log(user.get('pwd'));
-	
-	return user;
+	return User;
+
 });    

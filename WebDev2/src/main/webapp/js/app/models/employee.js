@@ -29,7 +29,6 @@ define(function (require) {
 			pic:'', 
 			blog:''
 	  	},
-    	
         initialize: function () {
         	console.log("employee initialize()");
         }

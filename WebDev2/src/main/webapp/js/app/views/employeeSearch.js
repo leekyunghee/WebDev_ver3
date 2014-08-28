@@ -13,16 +13,11 @@ define(function (require) {
     	
         initialize: function (options) {
         	console.log("employeeSearch initialize()");
-        	
-//         	this.el = options.el;
-        	
-        	// backbone.js에 viewOptions에 정의 되어 있으므로 this.collection으로 사용할 수 있다.
-//        	this.employees = options.collection;		
-//            this.listenTo(this.model, 'change', this.render);
         },
         
         events : {
-        	"click .searchBtn" : "search"
+        	"click .searchBtn" : "search",
+        	"keypress .searchBtn": "onkeypress"
         },
         remove: function(){
         	console.log("override view remove");
@@ -45,6 +40,11 @@ define(function (require) {
         	console.log("employeeSearch render");
             this.$el.html(this.template());
             return this;
+        },
+        onkeypress: function (event) {
+            if (event.keyCode === 13) { // enter key pressed
+                event.preventDefault();
+            }
         }
     });
 

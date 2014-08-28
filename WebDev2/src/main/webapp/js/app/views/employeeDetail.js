@@ -1,17 +1,16 @@
 define(function (require) {
 
     "use strict";
-
+    
+    // require library
     var $                   = require('jquery'),
         _                   = require('underscore'),
         Backbone            = require('backbone'),
-        tpl		            = require('text!tpl/EmployeeDetail.html'),
-        tpl2		        = require('text!tpl/EmployeeEdit.html');
+        tpl		            = require('text!tpl/EmployeeDetail.html');
     
     return Backbone.View.extend({
 
         template : _.template(tpl),
-    	template2 : _.template(tpl2),
     	initialize: function (options) {
         	console.log("employeeDetail initialize()");
         	
@@ -24,7 +23,7 @@ define(function (require) {
         	self.listenTo(self.model, 'destroy', this.destroyed);
         	
         	// data 조회
-        	self.model.fetch({
+        	self.model.fetch({             
         		url:'employee/selectEmployee',
         		data:JSON.stringify({id:options.id})
         	});
@@ -33,7 +32,6 @@ define(function (require) {
         events: {
             "click #EditBtn"   		: "employeeEditView",
             "click #DeleteBtn"   	: "destroy",
-            "click #SaveBtn"   		: "edit"
         },
         
         remove: function(){
@@ -58,42 +56,9 @@ define(function (require) {
         	this.$el.html(this.template(this.model.toJSON()));
             return this;
         },
-        employeeEditView: function(event){
-        	console.log("employeeDetail employeeEdit()");
-        	this.$el.empty();
-        	this.$el.append(this.template2(this.model.toJSON()));
-        	return this;
-        },
         
-        edit: function(event){
-        	console.log("employeeDetail employeeEditSave()");
-			var con = confirm("수정 하시겠습니까?");
-			if(con){
-				this.model.save({
-                    id:$('#txtid').val(), 
-                    firstName:$('#txtFirstName').val(), 
-                    lastName:$('#txtLastName').val(), 
-                    title:$('#selTitle').val(), 
-                    managerName:$('#txtManagerName').val(), 
-                    managerId:$('#txtManagerId').val(), 
-                    officePhone:$('#txtOfficePhone').val(), 
-                    cellPhone:$('#txtCellPhone').val(), 
-                    city:$('#txtCity').val(), 
-                    email:$('#txtEmail').val(), 
-                    twitterId:$('#txtTwitter').val(), 
-                    pic:$('#imgName').val(), 
-                    blog:$('#txtBlog').val()
-                }, 
-                {
-                	wait:true, 
-                	silent:true,
-                	success:function(model, resp, options){
-                		console.log("강제 이벤트 발생");
-                		model.trigger("change");
-                	},
-                	error:function(model, resp, options){alert(resp);}
-                });
-			}
+        employeeEditView : function(employee) {
+        	Backbone.pageMove.employeeEdit(this.id);
         },
         
         destroy: function(event){
@@ -108,7 +73,7 @@ define(function (require) {
         },
         
         destroyed: function(){
-        	location.hash="#employeeList";
+        	Backbone.pageMove.employees();
         }
     });
 });

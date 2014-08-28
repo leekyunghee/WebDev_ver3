@@ -37,7 +37,7 @@ define(function(require) {
 		},
 		
 		added : function(){
-		    location.hash="#employeeList";
+			Backbone.pageMove.employees();
 		},
 		
 		save : function() {
@@ -58,18 +58,19 @@ define(function(require) {
                     pic:$('#imgName').val(), 
                     blog:$('#txtBlog').val()
                 }
-				,{ 
-					wait: true,
-				    dataType: "text",
+				,{
+					// 저장 할때마다 실패, 에러남   
+//					wait: true,
+//				    dataType: "text",
 				    // model.save() 타입이 dataType : json이기 때문에 json타입이 아닐경우 error 발생.
-				    success:function(model, resp, options){
-				        console.log( JSON.stringify(resp) );
-				        alert("저장 성공.");
-                    },
-				    error:function(model, resp, options){
-				        console.log( JSON.stringify(resp) );
-			            alert("저장 실패.");
-				    }
+//				    success:function(model, resp, options){
+//				        console.log( JSON.stringify(resp) );
+//				        alert("저장 성공.");
+//                    },
+//				    error:function(model, resp, options){
+//				        console.log( JSON.stringify(resp) );
+//			            alert("저장 실패.");
+//				    }
 				});
 			}	
 		}
